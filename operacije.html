@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aritmeticke operacije</title>
+    <script type="text/javascript">
+        function izracunajIzraz()
+        {
+            var prviBroj = document.getElementById("prviBroj").value;
+            var operacija = document.getElementById("operacija").value;
+            var drugiBroj = document.getElementById('drugiBroj').value;
+            var label = document.getElementById('vrednost');
+            if (isNaN(prviBroj) || isNaN(drugiBroj)) {
+                label.innerText = 'Unesi validne vrednosti';
+            } else {
+                switch(operacija) {
+                    case '+':
+                        label.innerText = parseFloat(prviBroj) + parseFloat(drugiBroj);
+                        break;
+                    case '-':
+                        label.innerText = parseFloat(prviBroj) - parseFloat(drugiBroj);
+                        break;
+                    case '*':
+                        label.innerText = parseFloat(prviBroj) * parseFloat(drugiBroj);
+                    break;
+                    case '/':
+                        if (drugiBroj == 0) {
+                            label.innerText = 'Nije dozvoljeno deljenje nulom';
+                        } else {
+                            label.innerText = parseFloat(prviBroj) / parseFloat(drugiBroj);
+                        }
+                        
+                    break;
+                    default:
+                        label.innerText = 'Unesi validne vrednosti';
+                    }
+            }
+           
+        }
+        
+  </script>
+</head>
+<body>
+    <div>
+        <label for="prviBroj">Unesite prvi broj:</label>
+        <input type="text" id="prviBroj">
+    </div>
+    <br>
+    <div>
+        <label for="operacija">Unesite aritmeticku operaciju:</label>
+        <input type="text" id="operacija">
+    </div>
+    <br>
+    <div>
+        <label for="drugiBroj">Unesite drugi broj:</label>
+        <input type="text" id="drugiBroj">
+    </div>
+    <br>
+    <button onclick="izracunajIzraz()">Izracunaj izraz</button>
+    <br>
+    <label id="vrednost" ></label>
+   
+</body>
+</html>
